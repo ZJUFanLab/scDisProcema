@@ -1,0 +1,13 @@
+Package: scDisProcema
+Type: Package
+Title: Single-cell Disease Progression cellular module analysis (scDisProcema)
+Version: 0.1.0
+Date: 2022-06-11
+Author: Li
+Maintainer: BK<BK@LZU.EDU>
+Description: A GCN construction pipeline named single-cell Disease Progression cellular module analysis (scDisProcema), which can trace dynamic changes of immune system response during disease progression using single-cell data.
+License: GPL-3
+Encoding: UTF-8
+LazyData: false
+Depends: WGCNA, Seurat, stringr, stats, magrittr, dplyr, Hmisc,dynamicTreeCut,utils
+RoxygenNote: 7.2.0
