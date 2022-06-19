@@ -15,7 +15,7 @@ Varying degrees of dynamic changes could occur in many aspects over disease prog
     install.packages(pkgs = 'scDisProcema-1.0.tar.gz',repos = NULL, type = "source")
   
 ## Usage
-Please refer to the tutorial vignette.
+Please refer to the tutorial [vignette](.tutorial.md).
 
 ## About
 scDisProcema repository was developed by Anyao Li and Jihong Yang. Should you have any questions, please contact us at lianyao625@163.com.
