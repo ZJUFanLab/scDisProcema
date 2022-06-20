@@ -7,7 +7,7 @@ Varying degrees of dynamic changes could occur in many aspects over disease prog
 ![workflow](./fig/Fig2_00.jpg "Workflow")
 
 ## Install
-  please download scDeepSort-v1.0-cpu.tar.gz from the release page and execute the following command
+  please download scDisProcema_0.1.0.tar.gz from the release page and execute the following command
   
     # download the source package of scDisProcema-1.0.tar.gz and install it
     # ensure the right directory for scDisProcema-1.0.tar.gz
