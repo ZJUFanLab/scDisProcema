@@ -4,3 +4,4 @@
   The workflow of the scDisProcema can be divided into three steps: 1) gene-state matrix as input to WGCNA for gene co-expression network module searching; 2) module dynamic analysis for degree of dynamic change and relevance to cells over the course of disease; 3) key module identification for different cell types.
 
 ## General usage
+  The input of the scDisProcema is a Cell state-Genes matrix. The sample data can be obtained [here](/data/mean.csv).
