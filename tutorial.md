@@ -83,7 +83,7 @@
               Colv=NA,Rowv=NA,cexRow = 1,cexCol = 1,width =10,height = 5,
               txt = as.matrix(apply(New_score_scale_round2,2,as.character)),
               color = c("#332288","#88CCEE","white","#DDCC77","#882255"))
-  ![heatmap_S(MS)](/fig/heatmap-New_score_scale.pdf)
+  ![heatmap_S(MS)](/fig/heatmap-New_score_scale_00.jpg)
        
   ⑤After that, the module with the highest S(MS) is identified as key module for the certain cell type, indicating its significant regulation for the dynamic change of this cell type during disease progression. The Ide_KeyMod can be conveniently performed to identify the key modules.
         
