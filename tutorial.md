@@ -39,3 +39,8 @@
  
  
   The net list contains information of color indexes, members and module eigengene values of all inferred modules. The Mod_Extra function can be convert these information to a format that is easy to use later.
+      
+      #If Cyt = TRUE, the function will export files available for Cytoscape to visualize the network
+      #sftpower: the power of the weight between genes. The default value is the soft threshold obtained in Mod_Infer
+      
+      mod<-Mod_Extra(data_Expr = data_Expr,net = net,Cyt = TRUE,sftpower = net$sftpower)
