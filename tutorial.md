@@ -107,3 +107,5 @@
       # pDC        HSP90B1, SEC11C, SPCS3, MYDGF, LMAN1
       # γδ T                      DUSP2, TNFAIP3, CXCR4
 
+## About
+  scDisProcema repository was developed by Anyao Li and Jihong Yang. Should you have any questions, please contact us at lianyao625@163.com.
