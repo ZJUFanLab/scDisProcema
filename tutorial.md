@@ -19,3 +19,11 @@
     
     #replace the "." to "-" in the gene names
     colnames(mean)<-str_replace_all(colnames(mean),"\\.","-")
+
+  Then filter the data:
+      
+      #if mad = TRUE, screen genes with median absolute deviation (MAD) larger than the threshold.
+      #if goodsamples = TRUE, goodSamplesGenes function will be performed to screen out missing entries and genes with zero-variance
+      
+      data_Expr<-filter_data(mean,mad = TRUE,mad.thre = 0.01,goodsamples = TRUE)
+    
