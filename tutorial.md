@@ -4,7 +4,7 @@
   The workflow of the scDisProcema can be divided into three steps: 1) gene-state matrix as input to WGCNA for gene co-expression network module searching; 2) module dynamic analysis for degree of dynamic change and relevance to cells over the course of disease; 3) key module identification for different cell types.
 
 ## General usage
-  The input of the scDisProcema is a Cell state-Genes matrix. The sample data can be obtained [here](/data/mean.csv).
+  The input of the scDisProcema is a Cell state-Genes matrix. The sample data can be downloaded [here](/data/mean.csv).
   
     #read the file
     mean<-read.csv("mean.csv",row.names = 1)
@@ -66,4 +66,6 @@
       #the members of each module
       modProbes<-mod$modProbes
 
-  Fourth, calculate the module significant score. 
+  Fourth, calculate the module significant score. This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell ratio.csv).
+      
+      
