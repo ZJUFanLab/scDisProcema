@@ -4,7 +4,7 @@
   The workflow of the scDisProcema can be divided into three steps: 1) gene-state matrix as input to WGCNA for gene co-expression network module searching; 2) module dynamic analysis for degree of dynamic change and relevance to cells over the course of disease; 3) key module identification for different cell types.
 
 ## General usage
-  The input of the scDisProcema is a Cell state-Genes matrix. The sample data can be downloaded [here](/data/mean.csv).
+  ①The input of the scDisProcema is a Cell state-Genes matrix. The sample data can be downloaded [here](/data/mean.csv).
   
     #read the file
     mean<-read.csv("mean.csv",row.names = 1)
@@ -35,14 +35,14 @@
     #replace the "." to "-" in the gene names
     colnames(mean)<-str_replace_all(colnames(mean),"\\.","-")
 
-  Then filter the data:
+  ②Then filter the data:
       
       #if mad = TRUE, screen genes with median absolute deviation (MAD) larger than the threshold.
       #if goodsamples = TRUE, goodSamplesGenes function will be performed to screen out missing entries and genes with zero-variance
       
       data_Expr<-filter_data(mean,mad = TRUE,mad.thre = 0.01,goodsamples = TRUE)
     
-  Third, construct gene co-expression network (GCN) and infer gene modules by Mod_Infer(). 
+  ③Third, construct gene co-expression network (GCN) and infer gene modules by Mod_Infer(). 
     
       #RsquaredCut: the scale-free topology fitting index R2, set to pick an appropriate soft-thresholding power for scale-free network construction
       #maxBlockSize and minModuleSize: the maximum block size and minimum module size for module detection
@@ -66,7 +66,7 @@
       #the members of each module
       modProbes<-mod$modProbes
 
-  Fourth, calculate the module significant score (S(MS)). This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell_ratio_total.csv).
+  ④Calculate the module significant score (S(MS)). This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell_ratio_total.csv).
       
       #read process the cell propotion file
       cell_propotion<-read.csv("cell_ratio_total.csv",row.names = 1)
@@ -84,5 +84,10 @@
               txt = as.matrix(apply(New_score_scale_round2,2,as.character)),
               color = c("#332288","#88CCEE","white","#DDCC77","#882255"))
   ![heatmap_S(MS)](/fig/heatmap-New_score_scale.pdf)
-      
+       
+  ⑤After that, the module with the highest S(MS) is identified as key module for the certain cell type, indicating its significant regulation for the dynamic change of this cell type during disease progression. The Ide_KeyMod can be conveniently performed to identify the key modules.
+        
+        keymod<-Ide_KeyMod(MEs_table = MEs_table,MS_score = sms)
 
+    
+  ⑥
