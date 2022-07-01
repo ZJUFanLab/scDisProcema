@@ -38,4 +38,4 @@
                deepSplit = 4,minModuleSize = 20,mergeCutHeight = 0.1)
  
  
-  The net list contains information of
+  The net list contains information of color indexes, members and module eigengene values of all inferred modules. The Mod_Extra function can be convert these information to a format that is easy to use later.
