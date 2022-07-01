@@ -27,3 +27,15 @@
       
       data_Expr<-filter_data(mean,mad = TRUE,mad.thre = 0.01,goodsamples = TRUE)
     
+  Third, construct gene co-expression network (GCN) and infer gene modules by Mod_Infer(). 
+    
+      #RsquaredCut: the scale-free topology fitting index R2, set to pick an appropriate soft-thresholding power for scale-free network construction
+      #maxBlockSize and minModuleSize: the maximum block size and minimum module size for module detection
+      #deepSplit: split sensitivity of the shear tree, ranging from 1 to 4. The greater, the more sensitive the shear tree
+      #mergeCutHeight: dendrogram cut height for module merging. The greater, the less modules can be detected
+      
+      net<-Mod_Infer(data_Expr = data_Expr,RsquaredCut = 0.9,maxBlockSize = "total",
+               deepSplit = 4,minModuleSize = 20,mergeCutHeight = 0.1)
+ 
+ 
+  The net list contains information of
