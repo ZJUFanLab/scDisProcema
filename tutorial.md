@@ -17,6 +17,21 @@
     # H_CD8+ T 0.000819104 0.002079264        0 0.10282906
     # H_mDC    0.096563011 0.001636661        0 0.05891980
     
+    #cell states are obtained from 9 cell types of 5 disease states
+    rownames(mean)
+    # >[1] "H_B"           "H_CD4+ T"      "H_CD8+ T"      "H_mDC"        
+    # [5] "H_Mega"        "H_Mono/Macro"  "H_NK"          "H_pDC"        
+    # [9] "H_γδ T"        "MP_B"          "MP_CD4+ T"     "MP_CD8+ T"    
+    # [13] "MP_mDC"        "MP_Mega"       "MP_Mono/Macro" "MP_NK"        
+    # [17] "MP_pDC"        "MP_γδ T"       "SP_B"          "SP_CD4+ T"    
+    # [21] "SP_CD8+ T"     "SP_mDC"        "SP_Mega"       "SP_Mono/Macro"
+    # [25] "SP_NK"         "SP_pDC"        "SP_γδ T"       "SC_B"         
+    # [29] "SC_CD4+ T"     "SC_CD8+ T"     "SC_mDC"        "SC_Mega"      
+    # [33] "SC_Mono/Macro" "SC_NK"         "SC_pDC"        "SC_γδ T"      
+    # [37] "MC_B"          "MC_CD4+ T"     "MC_CD8+ T"     "MC_mDC"       
+    # [41] "MC_Mega"       "MC_Mono/Macro" "MC_NK"         "MC_pDC"       
+    # [45] "MC_γδ T" 
+    
     #replace the "." to "-" in the gene names
     colnames(mean)<-str_replace_all(colnames(mean),"\\.","-")
 
@@ -38,9 +53,17 @@
                deepSplit = 4,minModuleSize = 20,mergeCutHeight = 0.1)
  
  
-  The net list contains information of color indexes, members and module eigengene values of all inferred modules. The Mod_Extra function can be convert these information to a format that is easy to use later.
+  The net list contains information of color indexes, members and module eigengene (ME) values of all inferred modules. The Mod_Extra function can be convert these information to a format that is easy to use later.
       
       #If Cyt = TRUE, the function will export files available for Cytoscape to visualize the network
       #sftpower: the power of the weight between genes. The default value is the soft threshold obtained in Mod_Infer
       
       mod<-Mod_Extra(data_Expr = data_Expr,net = net,Cyt = TRUE,sftpower = net$sftpower)
+      
+      #the ME values of each module
+      MEs_table <- mod$MEs_table
+      
+      #the members of each module
+      modProbes<-mod$modProbes
+
+  Fourth, calculate the module significant score. 
