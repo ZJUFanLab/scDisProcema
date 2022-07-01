@@ -90,4 +90,20 @@
         keymod<-Ide_KeyMod(MEs_table = MEs_table,MS_score = sms)
 
     
-  ⑥
+  ⑥Identify hub genes. Hub genes are genes with high correlation in the module. Here, genes that meet the following two requirements are defined as hub genes: 1) specifically expressed in corresponding cell types; 2) owned high connectivity in the network module. Here, Ide_Hubs is performed to identify hub genes based on the results we got previously. The markers file can be downloaded [here](/data/markers.csv).
+      
+      Hubs<-Ide_Hub(net = net,data_Expr = data_Expr,KeyMod = keymod,markers = markers)
+      
+      #check the file
+      Hubs
+      #>                                           Hubs
+      # B                          IGHM, ISG20, HSP90B1
+      # CD4+ T         HBA1, TRGV4, HBA2, TRGV5, HSPA1B
+      # CD8+ T          HIST1H1B, DHFR, PCNA, SMC2, DUT
+      # mDC         TRGV4, HSPA1A, TRGV5, HSPA1B, CXCR4
+      # Mega           RGS18, MMD, RUFY1, CA2, PLA2G12A
+      # Mono/Macro       CST3, ANXA5, ANXA2, PPT1, CTSH
+      # NK             HBB, HSPA1B, HBA2, HSPA1A, TRGV5
+      # pDC        HSP90B1, SEC11C, SPCS3, MYDGF, LMAN1
+      # γδ T                      DUSP2, TNFAIP3, CXCR4
+
