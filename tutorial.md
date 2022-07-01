@@ -66,6 +66,6 @@
       #the members of each module
       modProbes<-mod$modProbes
 
-  Fourth, calculate the module significant score. This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell ratio.csv).
+  Fourth, calculate the module significant score. This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell_ratio_total.csv).
       
       
