@@ -66,6 +66,24 @@
       #the members of each module
       modProbes<-mod$modProbes
 
-  Fourth, calculate the module significant score. This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell_ratio_total.csv).
+  Fourth, calculate the module significant score (S(MS)). This score comprehensively measures the correlation between the dynamic expression change of the modules and the dynamic change of the cell type during disease development. Here, we use the change of cell propotion to show the dynamic change of the cell types. The cell propotion file can be downloaded [here](/data/cell_ratio_total.csv).
+      
+      #read process the cell propotion file
+      cell_propotion<-read.csv("cell_ratio_total.csv",row.names = 1)
+      #Let the order of cell types in cell_propotion match that of MEs_table
+      rownames(cell_propotion)<-paste(cell_propotion$disease_state,cell_propotion$cell_type,sep = "_")
+      cell_propotion<-cell_propotion[rownames(MEs_table),]
+      
+      #calculate S(MS)
+      sms<-MSScore(MEs_table = MEs_table,comp_group = cell_propotion$cell_type,values = cell_propotion$cell_ratio)
+      
+      #visualization
+      New_score_scale_round2<-round(sms,2)
+      NMF::aheatmap(New_score_scale_round2,filename = "heatmap-New_score_scale.pdf",
+              Colv=NA,Rowv=NA,cexRow = 1,cexCol = 1,width =10,height = 5,
+              txt = as.matrix(apply(New_score_scale_round2,2,as.character)),
+              color = c("#332288","#88CCEE","white","#DDCC77","#882255"))
+
       
       
+
