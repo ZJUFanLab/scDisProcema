@@ -83,7 +83,6 @@
               Colv=NA,Rowv=NA,cexRow = 1,cexCol = 1,width =10,height = 5,
               txt = as.matrix(apply(New_score_scale_round2,2,as.character)),
               color = c("#332288","#88CCEE","white","#DDCC77","#882255"))
-
-      
+  ![heatmap_S(MS)](/fig/heatmap-New_score_scale.pdf)
       
 
